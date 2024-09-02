@@ -1,0 +1,60 @@
+{
+    "cars": [
+        {
+            "model": "Volkswagen T-Cross",
+            "description": "Gasoline, 4 People, 5.3km / 1-litre, Automatic",
+            "price": 400,
+            "quantity": 1,
+            "image": "/assets/images/car-3.jpg"
+        },
+        {
+            "model": "BMW 4 Series GTI",
+            "description": "Gasoline, 4 People, 7.6km / 1-litre, Automatic",
+            "price": 530,
+            "quantity": 1,
+            "image": "/assets/images/car-5.jpg"
+        },
+        {
+            "model": "Porsche 911 GTS",
+            "description": "Gasoline, 2 People, 9.2km / 1-litre, Automatic",
+            "price": 450,
+            "quantity": 1,
+            "image": "/assets/images/911-GTS.jpg"
+        },
+        {
+            "model": "Ferrari F12 Berlinetta",
+            "description": "Gasoline, 2 People, 9.3km / 1-litre, Manual",
+            "price": 400,
+            "quantity": 1,
+            "image": "/assets/images/Ferrari_F12berlinetta_IMG_2941.jpg"
+        },
+        {
+            "model": "Tesla Model 3",
+            "description": "EV, 4 People, 378km / charge, Automatic",
+            "price": 690,
+            "quantity": 1,
+            "image": "/assets/images/Tesla_Model_3_2024-02.jpg"
+        },
+        {
+            "model": "Cadillac Escalade",
+            "description": "Gasoline, 4 People, 7.7km / 1-litre, Automatic",
+            "price": 620,
+            "quantity": 1,
+            "image": "/assets/images/car-4.jpg"
+        },
+        {
+            "model": "BMW 3 Series",
+            "description": "Gasoline, 4 People, 8.2km / 1-litre, Automatic",
+            "price": 350,
+            "quantity": 1,
+            "image": "/assets/images/car-2.jpg"
+        },
+        {
+            "model": "Toyota RAV4",
+            "description": "Hybrid, 4 People, 6.1km / 1-litre, Automatic",
+            "price": 440,
+            "quantity": 1,
+            "image": "/assets/images/car-1.jpg"
+        }
+    ]
+}
