@@ -16,6 +16,12 @@ function updateCarCount(count) {
     const carCountElement = document.getElementById('car-count');
     carCountElement.textContent = count;
 }
+// selectCar
+
+function selectCar(model) {
+    localStorage.setItem('selectedCarModel', model);
+    window.location.href = 'confirmation.html'; // Redirect to confirmation page
+}
 
 // Display cars on the page
 function displayCars(cars) {

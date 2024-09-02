@@ -13,6 +13,33 @@
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
+
+.title-wrapper {
+  display: flex;
+  align-items: center; /* Aligns the items vertically in the center */
+}
+
+
+.title-wrapper .section-title {
+  margin: 0;
+ /* Adjust font size as needed */
+  display: flex;
+  align-items: center;
+  font-size: 24px; /* Ensure font size is the same */
+  font-weight: 600; /* Ensure font weight is the same */
+  font-family: 'Nunito', sans-serif; /* Use the same font family */
+}
+
+.title-wrapper .section-title span {
+  font-size: inherit; /* Inherit font size from parent */
+  font-weight: inherit; /* Inherit font weight from parent */
+  font-family: inherit; /* Inherit font family from parent */
+  margin-left: 0; /* Reset margin, if any */
+}
+
+
+
+
 .search-bar {
   margin-top: 50px; /* Adjust the value as needed */
   display: flex;

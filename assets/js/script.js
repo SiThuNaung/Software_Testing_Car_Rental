@@ -55,3 +55,4 @@ function toggleNotifi(){
 		down = true;
 	}
 }
+
