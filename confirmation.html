@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rent your favourite car</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="./assets/css/confirmation.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+	<header class="header" data-header>
+		<div class="container">
+	  
+		  <a href="#" class="logo">
+			<img src="./assets/images/logo.svg" alt="Ridex logo">
+		  </a>
+		</div>
+	</header>
+	  
+<div class="container">
+<h3 class="getquotetext">Reservation</h3>
+	
+	<div class="blocks">
+	<!-- partial:index.partial.html -->
+		<div class="left">
+			<!-- <div class="triptype">
+				<button type="button" class="one-way-button">Short Term</button>
+				<button type="button" class="round-trip-button">Long Term</button>
+			</div> -->
+			<p>Start Date</p>
+			<div class="date-input-container">
+				<i class="fas fa-calendar-alt date-icon"></i>
+				<input class="date-input-field " type="text" id="sourcedatepicker" placeholder="mm/dd/yyyy">
+			</div>
+			<p>End Date</p>
+			<div class="date-input-container">
+				<i class="fas fa-calendar-alt date-icon"></i>
+				<input class="date-input-field" type="text" id="destinationdatepicker" placeholder="mm/dd/yyyy">
+			</div>
+			<p>Payment Information</p>
+			<div class="payment-container">
+				<div class="payment-option">
+					<input type="radio" id="paypal" name="payment" value="paypal" onclick="showDetails('paypal-details')">
+					<label for="paypal">PayPal</label>
+				</div>
+				<div id="paypal-details" class="payment-details">
+					<label for="paypal-email">PayPal Email</label>
+					<input type="text" id="paypal-email" name="paypal-email" placeholder="Enter your PayPal email">
+				</div>
+			
+				<div class="payment-option">
+					<input type="radio" id="visa" name="payment" value="visa" onclick="showDetails('visa-details')">
+					<label for="visa">Visa/Debit Card</label>
+				</div>
+				<div id="visa-details" class="payment-details">
+					<label for="card-number">Card Number</label>
+					<input type="number" id="card-number" name="card-number" placeholder="Enter your card number">
+					<label for="card-expiry">Expiry Date</label>
+					<input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY">
+					<label for="card-cvc">CVC</label>
+					<input type="number" id="card-cvc" name="card-cvc" placeholder="CVC">
+				</div>
+			
+				<div class="payment-option">
+					<input type="radio" id="cod" name="payment" value="cod" onclick="showDetails('cod-details')">
+					<label for="cod">Cash on Delivery</label>
+				</div>
+				<div id="cod-details" class="payment-details">
+					<p>Cash payment will be collected upon delivery.</p>
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="trip-detail-container">
+				<div class="one-way-container">
+					<h3 class="trip-detail-title">BMW 4 Series GTI</h3>
+					<table>
+						<table>
+							
+							<tr><td>From</td><td>2021-08-28 18:00:00 ET</td></tr>
+							<tr><td>To</td><td>2021-08-28 17:00:00 ET</td></tr>
+						</table>
+					</table>
+				</div>
+				<hr>
+				<div class="two-way-container">
+					<h3 class="trip-detail-title">Ferrari F12 Berlinetta</h3>
+					<table>
+						
+						<tr><td>From</td><td>2021-08-28 18:00:00 ET</td></tr>
+						<tr><td>To</td><td>2021-08-28 17:00:00 ET</td></tr>
+					</table>
+				</div>
+				<hr>
+				<div class="price-container">
+					<h3 class="trip-detail-title">Price</h3>
+					<table>
+						<tr><td>Base Price</td><td>USD $300</td></tr>
+						<tr><td>Tax</td><td>USD $30</td></tr>
+						<tr><td>Total Price</td><td>USD $330</td></tr>
+					</table>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	<dialog id="confirmed" >
+		<div class="modal-container">
+			<div class="modal">
+				<div class="checkmark-container">
+					<div class="checkmark">&#10004;</div>
+				</div>
+				<h2>Thank You!</h2>
+				<p>Your details have been successfully submitted. Thanks!</p>
+				<button onclick="window.location.href='index.html'" class="ok-button">OK</button>
+			</div>
+		</div>
+	</dialog>
+	<div class="buttons">
+		
+		<button type="button" onclick=showconfirmedDialog() class="button">Book Tickets</button>
+		<button type="button" onclick="window.location.href='index.html'" class="button1">Cancel</button>
+	</div>
+</div>
+<!-- partial -->
+  <script  src="./assets/js/confrimation.js"></script>
+
+</body>
+</html>
