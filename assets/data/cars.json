@@ -4,7 +4,7 @@
             "model": "Volkswagen T-Cross",
             "description": "Gasoline, 4 People, 5.3km / 1-litre, Automatic",
             "price": 400,
-            "quantity": 1,
+            "quantity": 4,
             "image": "/assets/images/car-3.jpg"
         },
         {
