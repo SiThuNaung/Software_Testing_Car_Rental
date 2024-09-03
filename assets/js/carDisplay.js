@@ -1,26 +1,7 @@
-// carDisplay.js
-let allCars = []; // To store all car data
-
-// Fetch and display the cars from the JSON file
-fetch('/assets/data/cars.json')
-  .then(response => response.json())
-  .then(data => {
-    allCars = data.cars;
-    displayCars(allCars);
-    updateCarCount(allCars.length);
-  })
-  .catch(error => console.error('Error fetching car data:', error));
-
 // Display car count
 function updateCarCount(count) {
     const carCountElement = document.getElementById('car-count');
     carCountElement.textContent = count;
-}
-// selectCar
-
-function selectCar(model) {
-    localStorage.setItem('selectedCarModel', model);
-    window.location.href = 'confirmation.html'; // Redirect to confirmation page
 }
 
 // Display cars on the page
@@ -45,7 +26,7 @@ function displayCars(cars) {
                         </ul>
                         <div class="card-price-wrapper">
                             <p class="card-price"><strong>$${car.price}</strong> / month</p>
-                            <button class="btn" onclick="location.href='/confirmation.html?car=${encodeURIComponent(car.model)}'">Rent now</button>
+                            <button class="btn" onclick="location.href='/confirmation.html?car=${encodeURIComponent(car.model)}&price=${car.price}&description=${encodeURIComponent(car.description)}'">Rent now</button>
                         </div>
                     </div>
                 </div>
@@ -54,6 +35,18 @@ function displayCars(cars) {
         carListContainer.innerHTML += carCard;
     });
 }
+
+// Fetch and display the cars from the JSON file
+let allCars = []; // To store all car data
+
+fetch('/assets/data/cars.json')
+  .then(response => response.json())
+  .then(data => {
+    allCars = data.cars;
+    displayCars(allCars);
+    updateCarCount(allCars.length);
+  })
+  .catch(error => console.error('Error fetching car data:', error));
 
 // Search functionality
 document.getElementById('carSearchInput').addEventListener('input', function() {

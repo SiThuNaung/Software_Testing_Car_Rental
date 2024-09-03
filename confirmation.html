@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rent your favourite car</title>
-
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./assets/css/confirmation.css">
-
     <!-- External JS -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
-
 <body>
     <header class="header" data-header>
         <div class="container">
@@ -25,10 +21,8 @@
             </a>
         </div>
     </header>
-
     <div class="container">
         <h3 class="getquotetext">Reservation</h3>
-
         <div class="blocks">
             <div class="left">
                 <p>Start Date</p>
@@ -43,42 +37,93 @@
                 </div>
                 <p>Car Model</p>
                 <div class="car-select-container">
-                    <select id="carSelect">
-                        <!-- Options will be dynamically loaded from car.json -->
-                    </select>
-                </div>
-                <p>Total Days</p>
-                <div class="total-days-container">
-                    <span id="totalDays">0</span> days
-                </div>
-                <p>Total Cost</p>
-                <div class="total-cost-container">
-                    $<span id="totalCost">0.00</span>
-                </div>
+                <select id="carSelect">
+                    <!-- Options will be dynamically loaded from car.json -->
+                </select>
             </div>
-        </div>
-
-        <div class="buttons">
-            <button type="button" onclick="calculateCost()" class="button">Calculate Cost</button>
-            <button type="button" onclick="confirmBooking()" class="button1">Confirm Booking</button>
+            <p>Total Days</p>
+            <div class="total-days-container">
+                <span id="totalDays">0</span> days
+            </div>
+            <p>Total Cost</p>
+            <div class="total-cost-container">
+                $<span id="totalCost">0.00</span>
+            </div>
         </div>
     </div>
-
-    <!-- Confirmation Dialog -->
-    <dialog id="confirmationDialog">
-        <div class="modal-container">
-            <div class="modal">
-                <div class="checkmark-container">
-                    <div class="checkmark">&#10004;</div>
-                </div>
-                <h2>Thank You!</h2>
-                <p>Your booking has been confirmed. Enjoy your ride!</p>
-                <button onclick="closeConfirmation()" class="ok-button">OK</button>
+    <div class="buttons">
+        <button type="button" onclick="calculateCost()" class="button">Calculate Cost</button>
+        <button type="button" onclick="confirmBooking()" class="button1">Confirm Booking</button>
+    </div>
+</div>
+<!-- Confirmation Dialog -->
+<dialog id="confirmationDialog">
+    <div class="modal-container">
+        <div class="modal">
+            <div class="checkmark-container">
+                <div class="checkmark">&#10004;</div>
             </div>
+            <h2>Thank You!</h2>
+            <p>Your booking has been confirmed. Enjoy your ride!</p>
+            <p id="carDetails"></p>
+            <button onclick="closeConfirmation()" class="ok-button">OK</button>
         </div>
-    </dialog>
-	<script src="./assets/js/confirmation.js"></script>
-    <script src="./assets/js/script.js"></script>
+    </div>
+</dialog>
+<script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+    // Get the car details from the URL
+    const carModel = getUrlParameter('car');
+    const carPrice = getUrlParameter('price');
+    const carDescription = getUrlParameter('description');
+    // Display the car details in the confirmation dialog
+    document.addEventListener('DOMContentLoaded', (event) => {
+        if (carModel) {
+            const carDetailsElement = document.getElementById('carDetails');
+            carDetailsElement.textContent = `Car Model: ${carModel}, Price: $${carPrice}, Description: ${carDescription}`;
+        }
+        // Initialize date pickers
+        $("#startDate, #endDate").datepicker();
+        // Load car options dynamically
+        fetch('/assets/data/cars.json')
+            .then(response => response.json())
+            .then(data => {
+                const carSelect = document.getElementById('carSelect');
+                data.cars.forEach(car => {
+                    const option = document.createElement('option');
+                    option.value = car.model;
+                    option.textContent = car.model;
+                    carSelect.appendChild(option);
+                });
+                // Set the selected car model if available
+                if (carModel) {
+                    carSelect.value = carModel;
+                }
+            })
+            .catch(error => console.error('Error fetching car data:', error));
+    });
+    // Function to calculate cost (dummy implementation)
+    function calculateCost() {
+        // Implement cost calculation logic here
+    }
+    // Function to confirm booking (dummy implementation)
+    function confirmBooking() {
+        const dialog = document.getElementById('confirmationDialog');
+        dialog.showModal();
+    }
+    // Function to close confirmation dialog
+    function closeConfirmation() {
+        const dialog = document.getElementById('confirmationDialog');
+        dialog.close();
+    }
+</script>
+<script src="./assets/js/confirmation.js"></script>
+<script src="./assets/js/script.js"></script>
 </body>
-
 </html>

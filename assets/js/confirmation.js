@@ -1,5 +1,3 @@
-// confirmation.js
-
 // Load car data from cars.json and populate car model select options
 function loadCarData() {
     fetch('./assets/data/cars.json')
